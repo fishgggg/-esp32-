@@ -1,0 +1,18 @@
+#
+# SmartHome ESP32 关键配置 (公开仓库)
+# 说明: 本文件保证他人 clone 后 idf.py build 可复现;
+#       完整 sdkconfig 由 idf.py 自动生成, 已 gitignore。
+#
+CONFIG_IDF_TARGET="esp32"
+
+# ----  Flash: DIO 40MHz / 2MB (板载 flash 能力) ----
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_40M=y
+CONFIG_ESPTOOLPY_FLASHSIZE="2MB"
+
+# ----  分区表: 单 APP, 无 OTA ----
+CONFIG_PARTITION_TABLE_SINGLE_APP=y
+
+# ----  CPU / 常用组件 ----
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_160=y
+CONFIG_MQTT_TRANSPORT_SSL=y

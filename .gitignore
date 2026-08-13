@@ -1,0 +1,23 @@
+# ---- ESP-IDF 构建产物 ----
+build/
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+
+# ---- IDE / 工具缓存 ----
+.cache/
+.vscode/
+.idea/
+
+# ---- Python ----
+__pycache__/
+*.pyc
+
+# ---- ESP-IDF 组件管理 ----
+managed_components/
+dependencies.lock
+
+# ---- 其它 ----
+*.log

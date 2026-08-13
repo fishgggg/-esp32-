@@ -1,0 +1,26 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "app_wifi.c"
+        "app_sensor.c"
+        "app_mqtt.c"
+        "app_display.c"
+        "app_ssd1306.c"
+        "app_ld3320.c"
+        "app_web.c"
+        "app_camera.c"
+    INCLUDE_DIRS "."
+    REQUIRES
+        nvs_flash
+        esp_wifi
+        esp_event
+        esp_netif
+        esp_driver_gpio
+        esp_driver_i2c
+        esp_driver_spi
+        esp_adc
+        esp_driver_uart
+        esp_http_server
+        mqtt
+        json
+)
