@@ -1,0 +1,31 @@
+# ============ SmartHome Agent 配置（测试版本） ============
+# LLM 与通知渠道为 mock 实现，密钥已脱敏。详见 README.md
+
+mqtt:
+  broker: 192.168.4.2
+  port: 1883
+  topic_sensor: smarthome/sensor
+  topic_cmd: smarthome/cmd
+
+rules:
+  offline_timeout_s: 30      # 超过该秒数无消息 = 设备离线
+  cooldown_s: 300            # 软告警(warning)冷却，避免刷屏
+  sensors:
+    co2:   { warning: 900,  critical: 1200, hysteresis: 50 }   # 占位，待实测标定
+    pm25:  { warning: 1200, critical: 1500, hysteresis: 80 }
+    temp:  { warning: 30.0, critical: 35.0, hysteresis: 2.0 }
+
+llm:
+  mode: mock                 # mock | real
+  base_url: ""               # real 模式才填（OpenAI 兼容端点）
+  model: ""                  # real 模式才填
+  api_key: ""                # real 模式才填，建议写 ${ENV_NAME} 从环境变量读
+
+notify:
+  mode: console              # console | serverchan
+  serverchan:
+    sendkey: ""              # 脱敏，real 模式才填 SCTxxxx
+
+storage:
+  db_path: data.db
+  retention_days: 30
